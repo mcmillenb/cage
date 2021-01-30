@@ -2,6 +2,7 @@
   <div v-if="loaded">
     <h1>{{ cage.name }}</h1>
     <img :src="`https://image.tmdb.org/t/p/w500/${cage.profile_path}`"/>
+    <br>
     <p>{{ cage.biography }}</p>
   </div>
 </template>
