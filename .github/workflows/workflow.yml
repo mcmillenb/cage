@@ -6,15 +6,16 @@ on:
 
 jobs:
 
-  build:
+  pages:
     runs-on: ubuntu-latest
+    env:
+      TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
 
     steps:
       - uses: actions/checkout@v2
 
       - name: build
-        env:
-          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+
         run: npm i && npm run build
 
       - name: deploy
