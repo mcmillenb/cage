@@ -1,4 +1,4 @@
-const KEY = process.env.TMDB_API_KEY || import.meta.env.VITE_TMDB_API_KEY;
+const KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 console.log('tmdb', { KEY });
 
