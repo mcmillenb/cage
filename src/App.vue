@@ -1,10 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div v-if="loaded">
+    <h1>{{ cage.name }}</h1>
+    <img :src="`https://image.tmdb.org/t/p/w500/${cage.profile_path}`"/>
+    <p>{{ cage.biography }}</p>
+  </div>
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import { getNicCage, getNicCageMovieCredits } from './tmdb';
+
+export default {
+  data() {
+    return {
+      loaded: false,
+      cage: {},
+      movies: []
+    }
+  },
+  async created() {
+    const [cage, movies] = await Promise.all([
+      getNicCage(),
+      getNicCageMovieCredits()
+    ])
+    this.cage = cage;
+    this.movies = movies?.cast;
+    this.loaded = true;
+  }
+}
 </script>
 
 <style>
