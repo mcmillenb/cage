@@ -15,4 +15,4 @@ jobs:
       - name: build
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-        run: npx vite build
+        run: npm i && npm vite build
