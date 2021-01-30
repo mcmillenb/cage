@@ -1,8 +1,7 @@
 <template>
-  <div v-if="loaded">
+  <div class="p-4 m-16 grid gap-2 items-center justify-center" v-if="loaded">
     <h1>{{ cage.name }}</h1>
-    <img :src="`https://image.tmdb.org/t/p/w500/${cage.profile_path}`"/>
-    <br>
+    <img :src="`https://image.tmdb.org/t/p/w400/${cage.profile_path}`"/>
     <p>{{ cage.biography }}</p>
   </div>
 </template>
@@ -32,11 +31,7 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
